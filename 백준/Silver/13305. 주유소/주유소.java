@@ -19,8 +19,8 @@ public class Main {
             cost[i] = Integer.parseInt(st.nextToken());
         }
 
-        int sum = 0;
-        int minCost = cost[0];
+        long sum = 0;
+        long minCost = cost[0];
 
         for (int i=0; i<N-1; i++) {
             if (cost[i] < minCost) {
