@@ -1,41 +1,39 @@
-import java.util.*;
 import java.io.*;
+import java.util.*;
 
 public class Main {
-    public static void main(String[] args) throws IOException{
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-
-        int N = Integer.parseInt(br.readLine());
-        int M = Integer.parseInt(br.readLine());
-        int[] arr = new int[N];
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader (System.in));
+        int n = Integer.parseInt(br.readLine());
+        int m = Integer.parseInt(br.readLine());
+        int[] arr = new int[n];
 
         StringTokenizer st = new StringTokenizer(br.readLine());
-
-        for (int i=0; i<N; i++) {
-            arr[i] = Integer.parseInt(st.nextToken()); // 배열에 잘 들어갓다
+        for (int i=0; i<n; i++) {
+            arr[i] = Integer.parseInt(st.nextToken());
         }
 
-        Arrays.sort(arr); // 정렬 필요
+        Arrays.sort(arr);
 
         int start = 0;
-        int end = N-1;
+        int end = n-1;
+        int sum = 0;
         int cnt = 0;
 
-        while (start < end) { // 
-            int sum = arr[start] + arr[end];
-            if (sum < M) {
-                start++;
-            } else if (sum > M) {
-                end--;
-            } else {
+        while (start < end) {
+            sum = arr[start] + arr[end];
+
+            if (sum == m) {
                 cnt++;
-                end --;
+                end--;
+            } else if (sum > m) {
+                end--;
+            } else { // sum < n
                 start++;
             }
-        } System.out.println(cnt);
+        }
 
-
-
+        System.out.println(cnt);
     }
 
 }
